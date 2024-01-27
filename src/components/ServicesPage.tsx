@@ -107,6 +107,7 @@ const ServicesPage = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    
     const appAddress = (await goInsureClient.appClient.getAppReference()).appAddress
     const _seed = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
       from: String(activeAddress),
