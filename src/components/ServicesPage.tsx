@@ -112,7 +112,7 @@ const ServicesPage = () => {
       from: String(activeAddress),
       to: appAddress,
       amount: BigInt(algosdk.algosToMicroalgos(1)),
-      suggestedParams: await algodClient.getTransactionParams().do(),
+      // suggestedParams: await algodClient.getTransactionParams().do(),
     })
     try {
       if (!(area && state && country)) {
