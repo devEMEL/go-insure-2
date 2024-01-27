@@ -103,7 +103,7 @@ const ServicesPage = () => {
       dateFormat.getSeconds(),
     )
   }
-
+  const _params = await algodClient.getTransactionParams().do(),
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -112,7 +112,7 @@ const ServicesPage = () => {
       from: String(activeAddress),
       to: appAddress,
       amount: BigInt(algosdk.algosToMicroalgos(1)),
-      // suggestedParams: await algodClient.getTransactionParams().do(),
+      suggestedParams: _params,
     })
     try {
       if (!(area && state && country)) {
