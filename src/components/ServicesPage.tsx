@@ -47,30 +47,6 @@ const ServicesPage = () => {
     console.log(goInsureClientAppId)
   }
 
-  // const shortenURL = async (URL: string) => {
-  //   let _result;
-  //       await fetch(`https://api-ssl.bitly.com/v4/bitlinks/${new_link}/qr?image_format=png`, {
-  //         mode: 'cors',
-  //         headers: {
-  //           Authorization: `Bearer ${import.meta.env.VITE_APP_BITLY_TOKEN}`,
-  //         },
-  //       })
-  //         .then((res) => res.json())
-  //         .then((result) => {
-  //           _result = result
-  //         })
-  //     })
-  //     return _result;
-  // }
-
-  //   const toTimestamp = (strDate: string) => {
-  //     const dt = Date.parse(strDate)
-  //     return dt / 1000
-
-  // const _startTimestamp = toTimestamp(startTimestamp)
-  // const _endTimestamp = toTimestamp(endTimestamp)
-  // const _claimTimestamp = toTimestamp(claimTimestamp)
-  //   }
 
 
   async function getMyPolicy() {
