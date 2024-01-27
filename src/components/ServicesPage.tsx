@@ -103,11 +103,10 @@ const ServicesPage = () => {
       dateFormat.getSeconds(),
     )
   }
-  const _params = await algodClient.getTransactionParams().do(),
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    
+    const _params =await algodClient.getTransactionParams().do();
     const appAddress = (await goInsureClient.appClient.getAppReference()).appAddress
     const _seed = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
       from: String(activeAddress),
