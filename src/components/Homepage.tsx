@@ -10,7 +10,7 @@ const Homepage = () => {
             <h1 className="text-[30px] md:text-[40px] lg:text-[50px] font-bold">Elevate Your Insurance Experience with Web 3 Technology</h1>
             <p className="text-[20px] text-center mt-8">
               Unleash the power of blockchain for comprehensive wind and flight insurance coverage. <br />
-              Welcome to Go Insure, where insurance meets innovation on the Web 3 frontier. We've redefined the way you experience coverage,
+              Welcome to Go Insure, where insurance meets innovation on the Web 3 frontier. We have redefined the way you experience coverage,
               focusing on the wind and beyond. Whether it's wind-related damages or flight mishaps, our Web 3 insurance platform has you
               covered.
             </p>
