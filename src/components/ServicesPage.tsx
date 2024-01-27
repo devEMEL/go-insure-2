@@ -5,7 +5,7 @@ import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClien
 import * as algokit from '@algorandfoundation/algokit-utils'
 import { useWallet } from '@txnlab/use-wallet'
 import { useSnackbar } from 'notistack'
-import algosdk, { ABIValue } from 'algosdk'
+import algosdk from 'algosdk'
 
 const ServicesPage = () => {
   //   const [area, setArea] = useState<number>(479832604)
@@ -114,7 +114,6 @@ const ServicesPage = () => {
       amount: BigInt(algosdk.algosToMicroalgos(1)),
       suggestedParams: await algodClient.getTransactionParams().do(),
     })
-
     try {
       if (!(area && state && country)) {
         enqueueSnackbar(`Error: Make sure all fields are set.`, { variant: 'error' })
