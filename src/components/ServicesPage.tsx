@@ -28,7 +28,6 @@ const ServicesPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const sender = { signer, addr: activeAddress! }
 
-  
   const goInsureClient = new GoInsureClient(
     {
       resolveBy: 'id',
@@ -46,8 +45,6 @@ const ServicesPage = () => {
     await goInsureClient.bootstrap({})
     console.log(goInsureClientAppId)
   }
-
-
 
   async function getMyPolicy() {
     const _policy = []
@@ -106,7 +103,7 @@ const ServicesPage = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const _params =await algodClient.getTransactionParams().do();
+    const _params = await algodClient.getTransactionParams().do()
     const appAddress = (await goInsureClient.appClient.getAppReference()).appAddress
     const _seed = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
       from: String(activeAddress),
@@ -114,32 +111,32 @@ const ServicesPage = () => {
       amount: BigInt(algosdk.algosToMicroalgos(1)),
       suggestedParams: _params,
     })
-    try {
-      if (!(area && state && country)) {
-        enqueueSnackbar(`Error: Make sure all fields are set.`, { variant: 'error' })
-        return
-      } else {
-        await goInsureClient.appClient.fundAppAccount(algokit.microAlgos(1_000_000))
+    // try {
+    //   if (!(area && state && country)) {
+    //     enqueueSnackbar(`Error: Make sure all fields are set.`, { variant: 'error' })
+    //     return
+    //   } else {
+    //     await goInsureClient.appClient.fundAppAccount(algokit.microAlgos(1_000_000))
 
-        const purchasePolicy = await goInsureClient.purchasePolicy(
-          {
-            pay_txn: _seed,
-            area: String(area),
-            state: String(state),
-            country: String(country),
-          },
-          {
-            boxes: [algosdk.decodeAddress(activeAccount?.address).publicKey],
-            sendParams: { fee: algokit.microAlgos(200_000) },
-          },
-        )
-        console.log(purchasePolicy)
-        enqueueSnackbar(`Policy purchased successfully`)
-      }
-    } catch (e) {
-      enqueueSnackbar(`Error purchasing policy: ${(e as Error).message}`, { variant: 'error' })
-      return
-    }
+    //     const purchasePolicy = await goInsureClient.purchasePolicy(
+    //       {
+    //         pay_txn: _seed,
+    //         area: String(area),
+    //         state: String(state),
+    //         country: String(country),
+    //       },
+    //       {
+    //         boxes: [algosdk.decodeAddress(activeAccount?.address).publicKey],
+    //         sendParams: { fee: algokit.microAlgos(200_000) },
+    //       },
+    //     )
+    //     console.log(purchasePolicy)
+    //     enqueueSnackbar(`Policy purchased successfully`)
+    //   }
+    // } catch (e) {
+    //   enqueueSnackbar(`Error purchasing policy: ${(e as Error).message}`, { variant: 'error' })
+    //   return
+    // }
   }
 
   useEffect(() => {
