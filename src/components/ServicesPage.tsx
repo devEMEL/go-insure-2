@@ -111,32 +111,32 @@ const ServicesPage = () => {
       amount: BigInt(algosdk.algosToMicroalgos(1)),
       suggestedParams: _params,
     })
-    // try {
-    //   if (!(area && state && country)) {
-    //     enqueueSnackbar(`Error: Make sure all fields are set.`, { variant: 'error' })
-    //     return
-    //   } else {
-    //     await goInsureClient.appClient.fundAppAccount(algokit.microAlgos(1_000_000))
+    try {
+      if (!(area && state && country)) {
+        enqueueSnackbar(`Error: Make sure all fields are set.`, { variant: 'error' })
+        return
+      } else {
+        await goInsureClient.appClient.fundAppAccount(algokit.microAlgos(1_000_000))
 
-    //     const purchasePolicy = await goInsureClient.purchasePolicy(
-    //       {
-    //         pay_txn: _seed,
-    //         area: String(area),
-    //         state: String(state),
-    //         country: String(country),
-    //       },
-    //       {
-    //         boxes: [algosdk.decodeAddress(activeAccount?.address).publicKey],
-    //         sendParams: { fee: algokit.microAlgos(200_000) },
-    //       },
-    //     )
-    //     console.log(purchasePolicy)
-    //     enqueueSnackbar(`Policy purchased successfully`)
-    //   }
-    // } catch (e) {
-    //   enqueueSnackbar(`Error purchasing policy: ${(e as Error).message}`, { variant: 'error' })
-    //   return
-    // }
+        const purchasePolicy = await goInsureClient.purchasePolicy(
+          {
+            pay_txn: _seed,
+            area: String(area),
+            state: String(state),
+            country: String(country),
+          },
+          {
+            boxes: [algosdk.decodeAddress(activeAccount?.address).publicKey],
+            sendParams: { fee: algokit.microAlgos(200_000) },
+          },
+        )
+        console.log(purchasePolicy)
+        enqueueSnackbar(`Policy purchased successfully`)
+      }
+    } catch (e) {
+      enqueueSnackbar(`Error purchasing policy: ${(e as Error).message}`, { variant: 'error' })
+      return
+    }
   }
 
   useEffect(() => {
