@@ -12,7 +12,7 @@ const Homepage = () => {
               Unleash the power of blockchain for comprehensive wind and flight insurance coverage. <br />
               Welcome to Go Insure, where insurance meets innovation on the Web 3 frontier. We have redefined the way you experience coverage,
               focusing on the wind and beyond. Whether it's wind-related damages or flight mishaps, our Web 3 insurance platform has you
-              covered
+              covered.
             </p>
           </div>
           <div className="text-center mt-20">
