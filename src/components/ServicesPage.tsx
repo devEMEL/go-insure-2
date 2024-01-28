@@ -147,7 +147,7 @@ const ServicesPage = () => {
       <div className="max-w-[94%] md:max-w-[80%] xl:max-w-[60%] w-[100%] mx-auto bg-[#FFFFFF] text-[#737373] font-['Lato'] my-20">
         <div className="capitalize text-4xl flex justify-center py-5">purchase Policy</div>
         <div className="border-2 border-black-100 rounded-[50px] p-10 mb-10">
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={async(e) => handleSubmit(e)}>
             <div className="mb-5">
               <label htmlFor="area" className="text-2xl capitalize">
                 Area
